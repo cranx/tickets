@@ -36,6 +36,7 @@ module.exports = (env = {}, argv) => {
         },
       ],
     },
+
     plugins: [
       new CleanWebpackPlugin('dist', {}),
       new CopyWebpackPlugin([{ from: './src/static/**/*', to: './', flatten: true }]),
