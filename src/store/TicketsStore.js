@@ -2,6 +2,8 @@ import { configure, observable, action, runInAction } from 'mobx'
 
 configure({ enforceActions: 'observed' }) // don't allow state modifications outside actions
 
+const byPrice = (a, b) => a.price - b.price
+
 export default class TicketsStore {
   @observable.ref
   tickets = []
@@ -33,8 +35,6 @@ export default class TicketsStore {
 
     runInAction(() => {
       this.isReady = true
-
-      const byPrice = (a, b) => a.price - b.price
       this.tickets = data.tickets.sort(byPrice)
     })
   }
