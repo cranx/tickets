@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { inject } from 'mobx-react'
 import PropTypes from 'prop-types'
+import Header from './header/Header'
 import TicketsPage from './ticketsPage/TicketsPage'
 
 @hot(module)
@@ -18,6 +19,7 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <div className="app__content">
+          <Header />
           {this.props.error && <div className="app__error">{this.props.error}</div>}
           <Router>
             <Route path="/" component={TicketsPage} />

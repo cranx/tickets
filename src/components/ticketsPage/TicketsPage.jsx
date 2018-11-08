@@ -36,7 +36,7 @@ export default class TicketsPage extends React.Component {
 
     return (
       <div className="tickets-page">
-        <div className="tickets-page__filter">
+        <div className="tickets-page__filters">
           <CurrencySelector />
           <StopsFilter
             values={getAvailableValues(sortedTickets)}

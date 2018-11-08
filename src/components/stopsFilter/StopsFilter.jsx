@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import pluralize from 'pluralize-ru'
 import StopsFilterItem from '../stopsFilterItem/StopsFilterItem'
+import './stopsFilter.pcss'
 
 export default class StopsFilter extends React.Component {
   static propTypes = {
@@ -59,7 +60,7 @@ export default class StopsFilter extends React.Component {
     return (
       <div className="stops-filter">
         <h3>Количество пересадок</h3>
-        <ul>
+        <ul className="stops-filter__list">
           <li>
             <StopsFilterItem
               isChecked={this.isAllFiltersEnabled()}

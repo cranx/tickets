@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import Tick from './tick.svg'
+import './stopsFilterItem.pcss'
 
 export default class StopsFilter extends React.PureComponent {
   static propTypes = {
@@ -10,7 +13,7 @@ export default class StopsFilter extends React.PureComponent {
   }
 
   static defaultProps = {
-    onFilterOnly: null
+    onFilterOnly: null,
   }
 
   handleChange = ({ target }) => {
@@ -24,12 +27,20 @@ export default class StopsFilter extends React.PureComponent {
   render() {
     return (
       <div className="stops-filter-item">
-        <label>
-          <input type="checkbox" checked={this.props.isChecked} onChange={this.handleChange} />
+        <label className="stops-filter-item__label">
+          <div className={classNames('stops-filter-item__checkbox', { 'is-checked': this.props.isChecked })}>
+            <Tick className="stops-filter-item__tick" />
+          </div>
+          <input
+            className="stops-filter-item__input"
+            type="checkbox"
+            checked={this.props.isChecked}
+            onChange={this.handleChange}
+          />
           {this.props.children}
         </label>
         {this.props.onFilterOnly && (
-          <button type="button" onClick={this.handleOnlyClick}>
+          <button className="stops-filter-item__only" type="button" onClick={this.handleOnlyClick}>
             Только
           </button>
         )}

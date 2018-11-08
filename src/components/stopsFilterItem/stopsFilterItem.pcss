@@ -1,0 +1,70 @@
+.stops-filter-item
+  height: 35px
+  line-height: 35px
+  margin: 0 -15px
+  transition: background-color .2s ease-in-out
+  position: relative
+  z-index: 1
+  font-size: 13px
+  white-space: nowrap
+
+  &:hover
+    background-color: #F1FCFF
+    .stops-filter-item__only
+      opacity: 1
+      pointer-events: all
+
+  &__label
+    display: block
+    height: 100%
+    cursor: pointer
+    padding: 0 15px 0 45px
+
+  &__checkbox
+    height: 19px
+    width: 19px
+    border-radius: 3px
+    position: absolute
+    z-index: 1
+    top: 8px
+    left: 15px
+    border: 1px solid #2196F3
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &.is-checked
+      .stops-filter-item__tick
+        opacity: 1
+
+  &__tick
+    opacity: 0
+    transition: opacity .2s ease-in-out
+
+  &__input
+    visibility: hidden
+    pointer-events: none
+    position: absolute
+    z-index: 0
+
+  &__only
+    position: absolute
+    z-index: 2
+    right: 15px
+    top: 0
+    line-height: 35px
+    border: none
+    padding: 0
+    margin: 0
+    outline: none
+    background: transparent
+    cursor: pointer
+    text-transform: uppercase
+    letter-spacing: 0.5px
+    font-weight: 600
+    font-size: 11px
+    color: #2196F3
+    pointer-events: none
+    transition: opacity .2s ease-in-out
+    opacity: 0
+

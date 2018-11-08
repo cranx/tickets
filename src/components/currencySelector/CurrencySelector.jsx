@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { observer, inject } from 'mobx-react'
+import classNames from 'classnames'
+import './currencySelector.pcss'
 
 @inject('store')
 @observer
@@ -22,21 +24,29 @@ export default class CurrencySelector extends React.Component {
     return (
       <div className="currency-selector">
         <h3>Валюта</h3>
-        <ul>
-          {this.values.map(currency => (
-            <li key={currency}>
-              <label>
-                <input
-                  type="radio"
-                  name="currency"
-                  value={currency}
-                  checked={currency === this.props.store.currentCurrency}
-                  onChange={this.handleChange}
-                />
-                {currency}
-              </label>
-            </li>
-          ))}
+        <ul className="currency-selector__list">
+          {this.values.map(currency => {
+            const isCurrent = currency === this.props.store.currentCurrency
+
+            return (
+              <li
+                key={currency}
+                className={classNames('currency-selector__item', { 'is-current': isCurrent })}
+              >
+                <label className="currency-selector__label">
+                  <input
+                    className="currency-selector__input"
+                    type="radio"
+                    name="currency"
+                    value={currency}
+                    checked={isCurrent}
+                    onChange={this.handleChange}
+                  />
+                  {currency}
+                </label>
+              </li>
+            )
+          })}
         </ul>
       </div>
     )
