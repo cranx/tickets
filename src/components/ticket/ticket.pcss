@@ -6,7 +6,11 @@
   margin-bottom: 20px
   min-height: 160px
   display: flex
+  will-change: auto
   transition: box-shadow .2s ease-in-out // TODO: optimize
+
+  @media(max-width: 800px)
+    flex-wrap: wrap-reverse
 
   &:hover
     box-shadow: 0 5px 25px 0 rgba(91, 137, 164, 0.10)
@@ -19,6 +23,16 @@
     align-items: center
     flex-direction: column
     border-right: 1px solid #ECEFF1
+
+    @media(max-width: 800px)
+      border-right: none
+      flex-direction: row-reverse
+      width: 100%
+      border-top: 1px solid #ECEFF1
+
+    @media(max-width: 380px)
+      flex-direction: column
+      height: 160px
 
     &-button
       background: none
@@ -35,6 +49,7 @@
       cursor: pointer
       transition: all .2s ease-in-out
       width: 100%
+      max-width: 160px
 
       &:hover
         background: #FF8124
@@ -55,6 +70,11 @@
     justify-content: space-between
     position: relative
     z-index: 1
+    min-width: 324px
+
+    @media(max-width: 380px)
+      min-width: auto
+      padding-top: 40px
 
   &__point
     max-width: 50%
@@ -86,6 +106,10 @@
     margin-left: -15%
     left: 50%
     text-align: center
+    @media(max-width: 380px)
+      top: 10px
+      width: 50%
+      margin-left: -25%
 
     &-text
       min-height: 12px
