@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Ticket from '../ticket/Ticket'
 
-export default class TicketsList extends React.Component {
+export default class TicketsList extends React.PureComponent {
   static propTypes = {
     tickets: PropTypes.arrayOf(
       PropTypes.shape({

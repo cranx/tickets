@@ -1,15 +1,15 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
-import ticketsMock from '../static/tickets.json'
-import TicketsList from './ticketsList/TicketsList'
+import { Route } from 'react-router-dom'
+import TicketsPage from './ticketsPage/TicketsPage'
 
-const byPrice = (a, b) => a.price - b.price
-const sortedTickets = ticketsMock.tickets.sort(byPrice)
-
-const App = () => (
-  <div className="app">
-    <TicketsList tickets={sortedTickets} />
-  </div>
-)
-
-export default hot(module)(App)
+@hot(module)
+export default class App extends React.Component {
+  render() {
+    return (
+      <div className="app">
+        <Route component={TicketsPage} />
+      </div>
+    )
+  }
+}

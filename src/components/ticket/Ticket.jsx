@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default class Ticket extends React.Component {
+export default class Ticket extends React.PureComponent {
   static propTypes = {
     ticket: PropTypes.shape({
       origin: PropTypes.string,
