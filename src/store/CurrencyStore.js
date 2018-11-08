@@ -2,14 +2,17 @@ import { configure, observable, action, runInAction } from 'mobx'
 
 configure({ enforceActions: 'observed' }) // don't allow state modifications outside actions
 
-export default class Store {
+export default class CurrencyStore {
   @observable.struct
   currencyRates = {
     RUB: 1,
   }
 
   @observable
-  currentCurrency = 'RUB' // RUB|USD|EUR
+  isReady = false
+
+  @observable
+  currentCurrency = window.sessionStorage.getItem('currency') || 'RUB'
 
   @observable
   error = ''
@@ -18,8 +21,9 @@ export default class Store {
     this.fetchCurrencyRates()
   }
 
-  @action
+  @action.bound
   setCurrentCurrency(currency) {
+    window.sessionStorage.setItem('currency', currency)
     this.currentCurrency = currency
   }
 
@@ -41,6 +45,8 @@ export default class Store {
     }
 
     runInAction(() => {
+      this.isReady = true
+
       this.currencyRates = {
         ...this.currencyRates,
         USD: data.results.RUB_USD.val,

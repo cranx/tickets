@@ -3,13 +3,15 @@ import { render } from 'react-dom'
 import { Provider } from 'mobx-react'
 import 'normalize.css'
 import App from './components/App'
-import Store from './store/Store'
+import CurrencyStore from './store/CurrencyStore'
+import TicketsStore from './store/TicketsStore'
 import './style.pcss'
 
-const store = new Store()
+const currencyStore = new CurrencyStore()
+const ticketsStore = new TicketsStore()
 
 render(
-  <Provider store={store}>
+  <Provider currencyStore={currencyStore} ticketsStore={ticketsStore}>
     <App />
   </Provider>,
   document.getElementById('root')

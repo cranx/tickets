@@ -9,7 +9,7 @@ import carrierLogo from './turkish.png'
 import Plane from './plane.svg'
 import './ticket.pcss'
 
-@inject(({ store }) => ({
+@inject(({ currencyStore: store }) => ({
   currency: store.currentCurrency,
   currencyRate: store.currencyRates[store.currentCurrency],
 }))
