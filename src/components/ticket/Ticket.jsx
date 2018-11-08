@@ -1,7 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { inject, observer } from 'mobx-react'
+import { formatPrice } from '../../utils/price'
 
-export default class Ticket extends React.PureComponent {
+@inject(({ store }) => ({
+  currency: store.currentCurrency,
+  currencyRate: store.currencyRates[store.currentCurrency],
+}))
+@observer
+export default class Ticket extends React.Component {
   static propTypes = {
     ticket: PropTypes.shape({
       origin: PropTypes.string,
@@ -16,13 +23,16 @@ export default class Ticket extends React.PureComponent {
       stops: PropTypes.number,
       price: PropTypes.number,
     }).isRequired,
+    currency: PropTypes.string.isRequired,
+    currencyRate: PropTypes.number.isRequired,
   }
 
   render() {
-    const { ticket } = this.props
+    const { ticket, currency, currencyRate: rate } = this.props
     return (
       <div className="ticket">
         <pre>{JSON.stringify(ticket, null, 2)}</pre>
+        <div>{`за ${formatPrice(ticket.price, currency, rate)}`}</div>
       </div>
     )
   }

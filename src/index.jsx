@@ -1,18 +1,16 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'mobx-react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import 'normalize.css'
 import App from './components/App'
+import Store from './store/Store'
 import './style.pcss'
 
-const store = {}
+const store = new Store()
 
 render(
-  <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 )
