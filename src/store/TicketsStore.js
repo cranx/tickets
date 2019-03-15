@@ -22,7 +22,7 @@ export default class TicketsStore {
   async fetchTickets() {
     let data
     try {
-      const response = await fetch('/tickets.json')
+      const response = await fetch('tickets.json')
       data = await response.json()
     } catch (error) {
       runInAction(() => {

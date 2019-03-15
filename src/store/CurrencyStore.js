@@ -32,7 +32,7 @@ export default class CurrencyStore {
     let data
     try {
       const response = await fetch(
-        'https://free.currencyconverterapi.com/api/v6/convert?q=RUB_USD,RUB_EUR'
+        'https://free.currencyconverterapi.com/api/v6/convert?q=RUB_USD,RUB_EUR&apiKey=deea7dce505c567ae1bc'
       )
       data = await response.json()
     } catch (error) {
