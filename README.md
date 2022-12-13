@@ -1,11 +1,13 @@
-## Frontend test task
+#### Airline catalog page example
+[Demo](https://cranx.ru/a/tickets/)
 
-- Фильтры сделал через get-параметры
-- Курсы валют загружаются с [free.currencyconverterapi.com](https://free.currencyconverterapi.com/) + текущая выбранная валюта сохраняется в *sessionStorage*
-- Сделал респонсивность до 320px
-- *tickets.json* подгружается с локального сервера
 
-До этого не использовал MobX, решил попробовать (мне понравилось :))
+
+- Responsive, mobile friendly
+- Filters work through URL parameters so you can share the results page
+- Dynamic currency from  [free.currencyconverterapi.com](https://free.currencyconverterapi.com/)
+- `MobX`
+
 
 ### Installation
 ```sh
